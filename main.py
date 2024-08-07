@@ -70,7 +70,7 @@ def extract_data():
 
 
 if __name__ == "__main__":
-    #notify()
+    notify()
 
     
     get_data()
