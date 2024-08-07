@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Myntra Price Tracker
 
-## Getting Started
+## Overview
 
-First, run the development server:
+The Myntra Price Tracker is a full-stack web application designed to track and visualize price changes of products from the Myntra e-commerce platform. This project leverages Python for web scraping, MongoDB for data storage, and Next.js with React for the front-end interface, creating a seamless experience for users to monitor product prices over time.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Web Scraping**: Utilizes Selenium and BeautifulSoup to extract product prices and details from Myntra.
+- **Data Storage**: Stores the scraped data in a MongoDB database, ensuring efficient data management and retrieval.
+- **Data Visualization**: Displays price trends over time using interactive charts, helping users make informed purchasing decisions.
+- **Responsive Design**: Provides a user-friendly interface with a responsive design, accessible on various devices.
+- **Navigation**: Includes a simple navigation bar for easy access to different sections of the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Backend**: 
+  - **Python**: For web scraping and data extraction.
+  - **Selenium**: To automate browser actions for scraping.
+  - **BeautifulSoup**: For parsing HTML content.
+  - **MongoDB**: As the database to store product price information.
+  - **Node.js**: For server-side logic and API endpoints.
+  
+- **Frontend**:
+  - **Next.js**: For server-side rendering and building the React application.
+  - **React**: For building interactive user interfaces.
+  - **React Charts**: For displaying price trends in a graphical format.
+  - **Tailwind CSS**: For styling and layout.
 
-## Learn More
+## How It Works
 
-To learn more about Next.js, take a look at the following resources:
+1. **Data Extraction**: The Python script (`main.py`) uses Selenium to navigate to product pages on Myntra, extract the necessary data (e.g., product ID, title, price), and save the HTML content locally.
+2. **Data Parsing and Storage**: BeautifulSoup parses the saved HTML files to extract product details, which are then stored in a MongoDB collection.
+3. **Data Aggregation**: The Next.js application fetches and aggregates this data from MongoDB, preparing it for visualization.
+4. **Visualization**: The front-end renders an interactive chart showing the price history of each product, allowing users to see how prices have changed over time.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Home Page**: Displays a list of tracked products, each linking to a detailed view.
+- **Product Details Page**: Shows an interactive chart of the product’s price history, helping users understand price trends.
 
-## Deploy on Vercel
+## Installation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Clone the repository**:
+    ```bash
+    git clone <repository-url>
+    ```
+2. **Install dependencies**:
+   - Backend:
+     ```bash
+     pip install -r requirements.txt
+     ```
+   - Frontend:
+     ```bash
+     npm install
+     ```
+3. **Run MongoDB**: Ensure MongoDB is running locally.
+4. **Start the backend**: Run the Python script to scrape and store data.
+5. **Start the frontend**: Run the Next.js application:
+    ```bash
+    npm run dev
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you wish to track the prices of your desired products, just add the link of the product from Myntra website to products.txt file and run the application
